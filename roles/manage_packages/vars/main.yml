@@ -43,4 +43,4 @@ packages:
   - name: mesa-utils
   - name: gnome-tweak-tool
   - name: fonts-firacode
-
+  - name: dconf-editor
