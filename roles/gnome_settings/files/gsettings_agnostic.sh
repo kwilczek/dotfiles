@@ -36,8 +36,3 @@ gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'libreoffice-wr
 # Privacy
 gsettings set org.gnome.desktop.privacy hide-identity true
 gsettings set org.gnome.desktop.search-providers disable-external true
-
-# Dock
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 36
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false

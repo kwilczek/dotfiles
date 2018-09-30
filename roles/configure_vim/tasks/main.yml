@@ -1,0 +1,19 @@
+---
+
+- name: create .vim/colors directory
+  file:
+    path: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors"
+    state: directory
+
+- name: download the distinguished colorscheme
+  get_url:
+    url: https://raw.githubusercontent.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors/distinguished.vim"
+    mode: 0644
+
+- name: copy .vimrc
+  copy:
+    src: vimrc
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.vimrc"
+
+...

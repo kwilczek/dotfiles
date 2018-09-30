@@ -1,0 +1,10 @@
+---
+
+- hosts: localhost
+  roles:
+    - { name: manage_packages, become: yes }
+    - { name: install_google_chrome, become: yes }
+    - { name: configure_vim }
+    - { name: gnome_settings }
+
+...

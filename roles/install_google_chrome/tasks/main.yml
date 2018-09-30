@@ -1,0 +1,8 @@
+---
+
+- name: install Google Chrome
+  apt:
+    force_apt_get: yes
+    update_cache: yes
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    state: present

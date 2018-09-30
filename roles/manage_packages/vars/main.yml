@@ -1,0 +1,46 @@
+---
+
+unwanted_packages:
+  - name: modemmanager
+
+unwanted_packages_ubuntu:
+  - name: update-manager
+  - name: snapd
+
+packages:
+  - name: vim
+  - name: git
+  - name: rsync
+  - name: unrar
+  - name: unzip
+  - name: p7zip-full
+  - name: zip
+  - name: htop
+  - name: iotop
+  - name: iftop
+  - name: lsscsi
+  - name: tcpdump
+  - name: nmap
+  - name: tree
+  - name: curl
+  - name: wget
+  - name: strace
+  - name: ltrace
+  - name: build-essential
+  - name: dkms
+  - name: shellcheck
+  - name: apg
+  - name: dmidecode
+  - name: hdparm
+  - name: parallel
+  - name: netfilter-persistent
+  - name: iptables-persistent
+  - name: default-jre-headless
+  - name: whois
+  - name: jq
+  - name: golang
+  - name: fonts-inconsolata
+  - name: mesa-utils
+  - name: gnome-tweak-tool
+  - name: fonts-firacode
+
