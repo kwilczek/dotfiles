@@ -3,13 +3,14 @@
 # Disable automatic updates.
 gsettings set org.gnome.software allow-updates false
 gsettings set org.gnome.software download-updates false
-gsettings set org.gnome.software enable-software-sources false
+
+# Calendar options.
+gsettings set org.gnome.desktop.calendar show-weekdate false
+gsettings set org.gnome.desktop.interface clock-show-date true
 
 # Set wallpaper and lock screen.
 gsettings set org.gnome.desktop.background picture-options 'stretched'
-gsettings set org.gnome.desktop.background picture-uri 'file:///home/kmwil/Obrazy/current_wallpaper_ln.jpg'
 gsettings set org.gnome.desktop.screensaver picture-options 'stretched'
-gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/kmwil/Obrazy/current_lockimage_ln.jpg'
 
 # Set nautilus options.
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
@@ -22,15 +23,21 @@ gsettings set org.gnome.nautilus.preferences show-image-thumbnails 'never'
 # Gnome Shell options.
 gsettings set org.gnome.shell always-show-log-out true
 gsettings set org.gnome.shell development-tools true
-gsettings set org.gnome.shell favorite-apps "['rhythmbox.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'org.gnome.Nautilus.desktop' ]"
-
-# Calendar options.
-org.gnome.desktop.calendar show-weekdate true
-org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.interface enable-animations false
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.background show-desktop-icons false
+gsettings set org.gnome.desktop.session idle-delay 'uint32 900'
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 17.0
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'org.gnome.Nautilus.desktop' ]"
 
 # Privacy
-org.gnome.desktop.privacy hide-identity true
-org.gnome.desktop.privacy old-files-age 3
-org.gnome.desktop.privacy remove-old-temp-files true
-org.gnome.desktop.privacy remove-old-trash-files true
+gsettings set org.gnome.desktop.privacy hide-identity true
+gsettings set org.gnome.desktop.search-providers disable-external true
 
+# Dock
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 36
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
