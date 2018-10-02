@@ -8,5 +8,6 @@
     - { name: gnome_settings }
     - { name: install_google_cloud_sdk }
     - { name: install_blackbox, become: yes }
+    - { name: install_docker_ce, become: yes }
 
 ...
