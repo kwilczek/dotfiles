@@ -6,5 +6,7 @@
     - { name: install_google_chrome, become: yes }
     - { name: configure_vim }
     - { name: gnome_settings }
+    - { name: install_google_cloud_sdk }
+    - { name: install_blackbox, become: yes }
 
 ...

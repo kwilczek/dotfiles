@@ -1,0 +1,12 @@
+---
+
+- name: clone the Blackbox git repo
+  git:
+    clone: yes
+    dest: "{{ blackbox_repo }}"
+    repo: https://github.com/StackExchange/blackbox
+
+- name: install Blackbox
+  make:
+    chdir: "{{ blackbox_repo }}"
+    target: copy-install

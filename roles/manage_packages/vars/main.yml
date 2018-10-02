@@ -44,3 +44,6 @@ packages:
   - name: gnome-tweak-tool
   - name: fonts-firacode
   - name: dconf-editor
+  - name: xorriso
+  - name: isolinux
+  - name: bsdtar

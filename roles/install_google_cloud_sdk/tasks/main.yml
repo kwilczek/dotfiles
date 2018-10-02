@@ -1,0 +1,25 @@
+---
+
+- name: check if the SDK is already installed
+  stat:
+    path: "{{ ansible_env.HOME }}/google-cloud-sdk/bin/gcloud"
+  register: sdk
+
+- name: download and run SDK install script
+  shell: |
+    curl https://sdk.cloud.google.com | bash -s -- --disable-prompts
+  when: sdk.stat.exists == False
+
+- name: add bash completion for SDK
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    state: present
+    block: |
+      . ~/google-cloud-sdk/completion.bash.inc
+      . ~/google-cloud-sdk/path.bash.inc
+
+- name: disable Google SDK usage reporting
+  command: |
+    "{{ ansible_env.HOME }}/google-cloud-sdk/bin/gcloud" config set disable_usage_reporting true
+  when: sdk.stat.exists == False
+
