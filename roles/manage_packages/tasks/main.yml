@@ -23,6 +23,7 @@
 
 - name: install packages
   apt:
+    install_recommends: no
     force_apt_get: yes
     update_cache: yes
     name: "{{ item.name }}"

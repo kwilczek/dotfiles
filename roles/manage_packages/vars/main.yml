@@ -47,3 +47,10 @@ packages:
   - name: xorriso
   - name: isolinux
   - name: bsdtar
+  - name: python-psutil
+  - name: python3-psutil
+  - name: virtualenv
+  - name: virtualenvwrapper
+  - name: python-apt
+  - name: python3-apt
+  - name: openssh-server
