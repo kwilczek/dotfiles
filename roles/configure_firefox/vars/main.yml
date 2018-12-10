@@ -1,0 +1,9 @@
+---
+
+profiles:
+  - name: bank
+  - name: play
+  - name: work
+  - name: gmail
+
+...

@@ -1,0 +1,18 @@
+---
+
+# --CreateProfile does not modify the existing prefs.js
+# It is safe to run muliple times.
+- name: create dedicated profiles
+  shell: firefox --no-remote --CreateProfile {{ item.name }}
+  with_items: "{{ profiles }}"
+
+# Create and append aliases
+- name: create and append aliases
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_aliases"
+    create: yes
+    insertafter: EOF
+    line: "alias firefox-{{ item.name }}='GTK_THEME=Adwaita:light firefox --no-remote -P {{ item.name }}'"
+  with_items: "{{ profiles }}"
+
+...
