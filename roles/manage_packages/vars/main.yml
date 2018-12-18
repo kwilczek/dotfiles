@@ -54,3 +54,6 @@ packages:
   - name: python-apt
   - name: python3-apt
   - name: openssh-server
+  - name: smartmontools
+  - name: libreoffice-gtk3
+  - name: libreoffice-gnome
