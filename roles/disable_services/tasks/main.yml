@@ -1,0 +1,7 @@
+---
+
+- name: disable NetworkManager-wait-online
+  systemd:
+    state: stopped
+    enabled: no
+    name: NetworkManager-wait-online
