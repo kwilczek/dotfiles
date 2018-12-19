@@ -5,9 +5,10 @@
     - { name: manage_packages, become: yes }
     - { name: install_google_chrome, become: yes }
     - { name: configure_vim }
-    - { name: gnome_settings }
-    - { name: install_google_cloud_sdk }
-    - { name: install_blackbox, become: yes }
-    - { name: install_docker_ce, become: yes }
+    - { name: configure_firefox }
+    - { name: disable_services, become: yes }
+    #- { name: install_google_cloud_sdk }
+    #- { name: install_blackbox, become: yes }
+    #- { name: install_docker_ce, become: yes }
 
 ...
