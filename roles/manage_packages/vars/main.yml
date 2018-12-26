@@ -6,6 +6,7 @@ unwanted_packages:
 unwanted_packages_ubuntu:
   - name: update-manager
   - name: snapd
+  - name: unattended-upgrades
 
 packages:
   - name: vim
@@ -57,3 +58,8 @@ packages:
   - name: smartmontools
   - name: libreoffice-gtk3
   - name: libreoffice-gnome
+  - name: dc3dd
+  - name: cdfldd
+  - name: gstreamer1.0-nice
+  - name: gstreamer1.0-gtk3
+  - name: gstreamer1.0-plugins-bad
