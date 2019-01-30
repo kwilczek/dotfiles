@@ -40,4 +40,4 @@ dconf write "/org/gnome/nautilus/preferences/default-folder-viewer" "'list-view'
 dconf write "/org/gnome/nautilus/list-view/default-zoom-level" "'small'"
 dconf write "/org/gnome/desktop/peripherals/touchpad/natural-scroll" "false"
 dconf write "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type" "'nothing'"
-
+dconf write "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type" "'nothing'"
