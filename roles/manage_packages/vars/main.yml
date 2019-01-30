@@ -63,3 +63,5 @@ packages:
   - name: gstreamer1.0-nice
   - name: gstreamer1.0-gtk3
   - name: gstreamer1.0-plugins-bad
+  - name: net-tools
+  - name: nethogs
