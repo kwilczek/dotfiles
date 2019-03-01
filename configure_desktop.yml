@@ -7,7 +7,8 @@
     - { name: configure_vim }
     - { name: configure_firefox }
     - { name: disable_services, become: yes }
-    #- { name: install_google_cloud_sdk }
+    - { name: install_google_cloud_sdk }
+    - { name: install_terraform, become: yes }
     #- { name: install_blackbox, become: yes }
     #- { name: install_docker_ce, become: yes }
 
