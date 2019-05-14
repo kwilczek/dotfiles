@@ -69,3 +69,6 @@ packages:
   - name: mkcue
   - name: eyed3
   - name: flac
+  # Musicbrainz abcde tool will not work without this packages.
+  - name: libwebservice-musicbrainz-perl
+  - name: libmusicbrainz-discid-perl
