@@ -65,3 +65,7 @@ packages:
   - name: gstreamer1.0-plugins-bad
   - name: net-tools
   - name: nethogs
+  - name: abcde
+  - name: mkcue
+  - name: eyed3
+  - name: flac
