@@ -2,7 +2,7 @@
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 " Get rid of ~ files.
 set nobackup
@@ -64,6 +64,6 @@ set statusline+=%1*\ %y\ %*
 set statusline+=%5*\ %p%%\ \ L%l\ \ C%v\ %*
 
 " Short text width.
-set textwidth=76
-highlight ColorColumn ctermbg=234
-set colorcolumn=+1
+" set textwidth=76
+" highlight ColorColumn ctermbg=234
+" set colorcolumn=+1
