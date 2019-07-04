@@ -1,7 +1,8 @@
 ---
 
 packages:
-  - apt-transport-https
-  - curl
-  - ca-certificates
-  - software-properties-common
+  - name: apt-transport-https
+  - name: curl
+  - name: gnupg2
+  - name: ca-certificates
+  - name: software-properties-common
