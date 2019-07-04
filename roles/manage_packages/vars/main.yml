@@ -9,8 +9,12 @@ unwanted_packages_ubuntu:
   - name: unattended-upgrades
 
 packages:
+  # Editors.
   - name: vim
+  # Source control.
   - name: git
+  - name: tig
+  # Tools.
   - name: rsync
   - name: unrar
   - name: unzip
@@ -25,8 +29,13 @@ packages:
   - name: tree
   - name: curl
   - name: wget
+  - name: ansible
+  - name: ansible-lint
+  - name: rename
   - name: strace
   - name: ltrace
+  - name: ca-certificates
+  - name: software-properties-common
   - name: build-essential
   - name: dkms
   - name: shellcheck
@@ -34,41 +43,67 @@ packages:
   - name: dmidecode
   - name: hdparm
   - name: parallel
-  - name: netfilter-persistent
-  - name: iptables-persistent
+  - name: minicom
+  - name: wakeonlan
+  - name: ethtool
+  - name: bats
+  - name: clitest
+  - name: cowsay
+  - name: socat
+  - name: smartmontools
+  - name: dc3dd
+  - name: cdfldd
   - name: default-jre-headless
   - name: whois
   - name: jq
-  - name: golang
-  - name: fonts-inconsolata
   - name: mesa-utils
   - name: gnome-tweak-tool
-  - name: fonts-firacode
   - name: dconf-editor
   - name: xorriso
+  - name: net-tools
+  - name: nethogs
+  - name: openssh-server
+  - name: apt-transport-https
   - name: isolinux
   - name: bsdtar
+  # Fonts.
+  - name: fonts-firacode
+  - name: fonts-inconsolata
+  # GnuPG and e-mail.
+  - name: scdaemon
+  - name: nitrokey-app
+  - name: gnupg-agent
+  - name: icedove
+  - name: enigmail
+  # OpenVPN.
+  - name: openvpn
+  - name: network-manager-openvpn-gnome
+  # Programming.
   - name: python-psutil
   - name: python3-psutil
   - name: virtualenv
   - name: virtualenvwrapper
   - name: python-apt
   - name: python3-apt
-  - name: openssh-server
-  - name: smartmontools
-  - name: libreoffice-gtk3
-  - name: libreoffice-gnome
-  - name: dc3dd
-  - name: cdfldd
-  - name: gstreamer1.0-nice
-  - name: gstreamer1.0-gtk3
-  - name: gstreamer1.0-plugins-bad
-  - name: net-tools
-  - name: nethogs
+  - name: python3-venv
+  - name: ipython
+  - name: ipython3
+  - name: golang
+  # Audio.
+  # Musicbrainz abcde tool will not work without this packages.
+  - name: libwebservice-musicbrainz-perl
+  - name: libmusicbrainz-discid-perl
   - name: abcde
   - name: mkcue
   - name: eyed3
   - name: flac
-  # Musicbrainz abcde tool will not work without this packages.
-  - name: libwebservice-musicbrainz-perl
-  - name: libmusicbrainz-discid-perl
+  - name: ffmpeg
+  - name: cuetools
+  - name: libcdio-utils
+  - name: brasero
+  - name: normalize-audio
+  - name: gstreamer1.0-nice
+  - name: gstreamer1.0-gtk3
+  - name: gstreamer1.0-plugins-bad
+
+...
