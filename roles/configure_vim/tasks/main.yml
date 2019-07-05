@@ -16,4 +16,11 @@
     src: vimrc
     dest: "{{ lookup( 'env', 'HOME' ) }}/.vimrc"
 
+- name: copy templates to the templates directory
+  copy:
+    src: "templates"
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
 ...
