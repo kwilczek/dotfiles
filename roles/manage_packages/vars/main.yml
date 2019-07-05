@@ -2,10 +2,6 @@
 
 unwanted_packages:
   - name: modemmanager
-
-unwanted_packages_ubuntu:
-  - name: update-manager
-  - name: snapd
   - name: unattended-upgrades
 
 packages:

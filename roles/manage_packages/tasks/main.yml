@@ -10,17 +10,6 @@
     autoremove: yes
   with_items: "{{ unwanted_packages }}"
 
-- name: remove unwanted packages specific for Ubuntu 18.04
-  apt:
-    force_apt_get: yes
-    update_cache: yes
-    name: "{{ item.name }}"
-    state: absent
-    purge: yes
-    autoremove: yes
-  with_items: "{{ unwanted_packages_ubuntu }}"
-  when: ansible_distribution_release == "bionic"
-
 - name: install packages
   apt:
     install_recommends: no
