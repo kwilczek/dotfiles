@@ -1,0 +1,21 @@
+---
+
+- name: delete the original sources.list file
+  file:
+    path: "/etc/apt/sources.list"
+    state: absent
+
+- name: add main Debian ICM mirror
+  apt_repository:
+    repo: http://ftp.icm.edu.pl/pub/Linux/debian testing main
+    state: present
+
+- name: add contrib Debian ICM mirror
+  apt_repository:
+    repo: http://ftp.icm.edu.pl/pub/Linux/debian testing contrib
+    state: present
+
+- name: add non-free Debian ICM mirror
+  apt_repository:
+    repo: http://ftp.icm.edu.pl/pub/Linux/debian testing non-free
+    state: present

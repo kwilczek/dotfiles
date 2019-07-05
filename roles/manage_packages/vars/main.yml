@@ -49,6 +49,7 @@ packages:
   - name: smartmontools
   - name: dc3dd
   - name: cdfldd
+  - name: uuid-runtime
   - name: default-jre-headless
   - name: whois
   - name: jq

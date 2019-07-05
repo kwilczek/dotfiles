@@ -2,6 +2,7 @@
 
 - hosts: localhost
   roles:
+    - { name: setup_sources_list, become: yes }
     - { name: manage_packages, become: yes }
     - { name: disable_services, become: yes }
     - { name: gpg_setup }
