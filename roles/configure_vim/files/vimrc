@@ -26,11 +26,12 @@ filetype plugin indent on
 " Syntax higlighting.
 syntax on
 
-" Skeleton file for C++.
-" au BufNewFile *.cc 0r ~/.vim/cc.skel
+" Skeleton files.
+autocmd BufNewFile *.bash,*.sh 0r ~/.vim/templates/bash.bash
 
 " Specific syntax higlighting for Cisco configuration.
 autocmd BufRead,BufNewFile *.ios set syntax=ios
+autocmd BufRead,BufNewFile *.j2 set syntax=jinja
 autocmd BufRead,BufNewFile *.dhcpd.conf set syntax=dhcpd
 autocmd BufRead,BufNewFile *.zone set syntax=bindzone
 
