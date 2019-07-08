@@ -48,7 +48,6 @@ packages:
   - name: socat
   - name: smartmontools
   - name: dc3dd
-  - name: cdfldd
   - name: uuid-runtime
   - name: default-jre-headless
   - name: whois
@@ -70,7 +69,8 @@ packages:
   - name: scdaemon
   - name: nitrokey-app
   - name: gnupg-agent
-  - name: icedove
+  - name: thunderbird
+  - name: thunderbird-l10n-pl
   - name: enigmail
   # OpenVPN.
   - name: openvpn
