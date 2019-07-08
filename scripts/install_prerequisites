@@ -1,7 +1,12 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install software-properties-common git vim
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt-get --no-install-recommends install ansible
-
+sudo apt-get --yes update
+sudo apt-get --yes install    \
+  software-properties-common  \
+  firmware-misc-nonfree       \
+  firmware-realtek            \
+  ansible-lint                \
+  ansible                     \
+  r8168-dkms                  \
+  git                         \
+  vim
