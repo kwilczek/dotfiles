@@ -1,0 +1,8 @@
+---
+
+- name: copy .gitconfig file
+  copy:
+    src: gitconfig
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.gitconfig"
+
+...

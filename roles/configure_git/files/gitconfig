@@ -1,0 +1,10 @@
+[alias]
+	c = commit --verbose
+	co = checkout
+	cob = checkout -b
+	p = push
+	a = add -p
+	d = diff
+	s = status
+	sb = status -sb
+
