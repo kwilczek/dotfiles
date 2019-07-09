@@ -5,6 +5,7 @@ sudo apt-get --yes install    \
   software-properties-common  \
   firmware-misc-nonfree       \
   firmware-realtek            \
+  firmware-iwlwifi            \
   ansible-lint                \
   ansible                     \
   r8168-dkms                  \
