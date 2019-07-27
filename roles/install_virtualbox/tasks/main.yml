@@ -1,0 +1,28 @@
+---
+
+- name: add Virtualbox repository key
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    state: present
+  when: ansible_distribution == "Debian"
+
+- name: add Virtualbox repository
+  apt_repository:
+    repo: >
+      deb https://download.virtualbox.org/virtualbox/debian
+      {{ ansible_distribution_release }} contrib
+    state: present
+
+- name: install the latest Virtualbox
+  apt:
+    force_apt_get: yes
+    update_cache: yes
+    name: virtualbox-6.0
+    state: latest
+
+- name: install the latest Guest Additions
+  apt:
+    force_apt_get: yes
+    update_cache: yes
+    name: virtualbox-guest-additions-iso
+    state: latest

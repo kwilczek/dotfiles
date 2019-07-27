@@ -7,6 +7,7 @@
     - { name: gpg_setup }
     - { name: configure_vim }
     - { name: configure_firefox }
+    - { name: install_virtualbox, become: yes }
     - { name: install_docker_ce, become: yes }
 
 ...
