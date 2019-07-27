@@ -14,19 +14,21 @@
     state: present
   when: ansible_distribution == "Debian"
 
+# Hardcoding _buster_ here; there is no _bullseye_ repository yet.
 - name: add Docker repository
   apt_repository:
     repo: >
       deb [arch=amd64] https://download.docker.com/linux/debian
-      {{ ansible_distribution_release }} stable
+      buster stable
     state: present
 
 - name: install latest Docker CE
   apt:
     force_apt_get: yes
     update_cache: yes
-    name: docker-ce
+    name: "{{ item.name }}"
     state: latest
+  with_items: "{{ docker_packages }}"
 
 # For some reason logging out was not enough to reset group
 # membership. I had to reboot the machine.
