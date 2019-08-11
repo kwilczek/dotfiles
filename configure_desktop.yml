@@ -2,12 +2,13 @@
 
 - hosts: localhost
   roles:
-    - { name: manage_packages, become: yes }
-    - { name: disable_services, become: yes }
-    - { name: gpg_setup }
-    - { name: configure_vim }
-    - { name: configure_firefox }
-    - { name: install_virtualbox, become: yes }
-    - { name: install_docker_ce, become: yes }
+    - { name: manage_packages, become: yes, tags: [apt] }
+    - { name: configure_apt, become: yes, tags: [confapt] }
+    - { name: disable_services, become: yes, tags: [systemd] }
+    - { name: gpg_setup, tags: [gpg,gnupg] }
+    - { name: configure_vim, tags: [vim] }
+    - { name: configure_firefox, tags: [firefox] }
+    - { name: install_virtualbox, become: yes, tags: [vbox, virtualbox] }
+    - { name: install_docker_ce, become: yes, tags: [docker] }
 
 ...

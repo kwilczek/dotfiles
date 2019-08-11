@@ -1,0 +1,17 @@
+---
+
+- name: purge unattended-upgrades
+  apt:
+    force_apt_get: yes
+    update_cache: yes
+    name: unattended-upgrades
+    state: absent
+    purge: yes
+
+- name: copy APT settings
+  copy:
+    src: 10periodic
+    dest: /etc/apt/apt.conf.d/10periodic
+    force: yes
+
+...

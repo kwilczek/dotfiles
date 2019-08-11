@@ -1,0 +1,10 @@
+# Opis opcji zawiera /usr/lib/apt/apt.systemd.daily.
+# Generalnie: _man apt.conf_ i poszukajcie _Periodic_.
+
+# Wyłączanie automatycznych skryptów do aktualizacji.
+APT::Periodic::Enable "0";
+
+# Wyłączenie automatycznego _apt-get update_ co N dni,
+# czy też pobierania paczek w tle.
+APT::Periodic::Update-Package-Lists "0";
+APT::Periodic::Download-Upgradeable-Packages "0";
