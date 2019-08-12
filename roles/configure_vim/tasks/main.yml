@@ -1,14 +1,23 @@
 ---
 
-- name: create .vim/colors directory
+- name: create .vim directory structure
   file:
-    path: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors"
+    path: "{{ lookup( 'env', 'HOME' ) }}/.vim/{{ item }}"
     state: directory
+  loop:
+    - colors
+    - plugin
 
 - name: download the distinguished colorscheme
   get_url:
     url: https://raw.githubusercontent.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
     dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors/distinguished.vim"
+    mode: 0644
+
+- name: download the vim-lastplace plugin
+  get_url:
+    url: https://raw.githubusercontent.com/farmergreg/vim-lastplace/master/plugin/vim-lastplace.vim
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/plugin/lastplace.vim"
     mode: 0644
 
 - name: copy .vimrc
