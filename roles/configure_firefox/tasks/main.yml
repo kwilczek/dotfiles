@@ -3,8 +3,8 @@
 # --CreateProfile does not modify the existing prefs.js
 # It is safe to run muliple times.
 - name: create dedicated profiles
-  shell: firefox --no-remote --CreateProfile {{ item.name }}
-  with_items: "{{ profiles }}"
+  shell: firefox --no-remote --CreateProfile {{ item }}
+  loop: "{{ profiles }}"
 
 # Create and append aliases
 - name: create and append aliases
@@ -12,7 +12,39 @@
     path: "{{ ansible_env.HOME }}/.bash_aliases"
     create: yes
     insertafter: EOF
-    line: "alias firefox-{{ item.name }}='GTK_THEME=Adwaita:light firefox --no-remote -P {{ item.name }}'"
-  with_items: "{{ profiles }}"
+    line: "alias firefox-{{ item }}='firefox --no-remote -P {{ item }}'"
+  loop: "{{ profiles }}"
+
+- name: create launchers directory
+  file:
+    path: "{{ firefox_launchers_dir }}"
+    state: directory
+
+- name: create launchers for all profiles
+  copy:
+    content: |
+      #!/usr/bin/env bash
+
+      firefox-esr --no-remote -P {{ item }}
+    dest: "{{ firefox_launchers_dir }}/firefox.{{ item }}.sh"
+    mode: 0755
+  loop: "{{ profiles }}"
+
+- name: create local desktop entries directory
+  become: yes
+  file:
+    path: "/usr/local/share/applications"
+    state: directory
+
+- name: create desktop entries for all profiles
+  become: yes
+  template:
+    src: "kmwil.firefox.desktop.j2"
+    dest: "/usr/local/share/applications/kmwil.firefox.{{ item }}.desktop"
+    owner: root
+    group: root
+    mode: 0644
+  loop: "{{ profiles }}"
+
 
 ...

@@ -4,19 +4,17 @@
   apt:
     force_apt_get: yes
     update_cache: yes
-    name: "{{ item.name }}"
+    name: "{{ unwanted_packages }}"
     state: absent
     purge: yes
     autoremove: yes
-  with_items: "{{ unwanted_packages }}"
 
 - name: install packages
   apt:
     install_recommends: no
     force_apt_get: yes
     update_cache: yes
-    name: "{{ item.name }}"
+    name: "{{ packages }}"
     state: latest
-  with_items: "{{ packages }}"
 
 ...

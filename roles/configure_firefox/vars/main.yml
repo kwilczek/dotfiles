@@ -1,9 +1,12 @@
 ---
 
 profiles:
-  - name: bank
-  - name: play
-  - name: work
-  - name: gmail
+  - bank
+  - play
+  - work
+  - gmail
+  - homework
+
+firefox_launchers_dir: "/home/{{ username }}/bin/firefox"
 
 ...
