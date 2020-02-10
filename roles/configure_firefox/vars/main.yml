@@ -4,8 +4,9 @@ profiles:
   - bank
   - play
   - work
+  - mail
   - gmail
-  - homework
+  - facebook
 
 firefox_launchers_dir: "/home/{{ username }}/bin/firefox"
 

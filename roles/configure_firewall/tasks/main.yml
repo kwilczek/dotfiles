@@ -1,0 +1,11 @@
+---
+
+- name: copy firewall script to the networkmanager
+  copy:
+    src: "firewall"
+    dest: "/etc/NetworkManager/dispatcher.d/pre-up.d/firewall"
+    mode: 0755
+    owner: "root"
+    group: "root"
+
+...

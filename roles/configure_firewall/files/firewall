@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -x
+
+# Nasze interfejsy i sieci.
+# readonly eth_iface="enp3s0"
+# readonly wlan_iface="wlp5s0"
+# readonly tun_iface="tun0"
+
+# Czyścimy wszystko na początek.
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -t raw -F
+iptables -t raw -X
+iptables -t security -F
+iptables -t security -X
+
+# Domyśle reguły.
+iptables -P INPUT   DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT  ACCEPT
+
+# ESTABLISHED i RELATED.
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+# Localhost.
+iptables -A INPUT -i lo -j ACCEPT
+
+#  _____
+# < SSH >
+#  -----
+#         \   ^__^             
+#          \  (oo)\_______     
+#             (__)\       )\/\ 
+#                 ||----w |    
+#                 ||     ||    
+#                              
+# Wpuszczamy z zewnątrz SSH, ale powinien być fail2ban.
+iptables -t filter -A INPUT -m conntrack --ctstate NEW -p tcp --dport 22 -j ACCEPT

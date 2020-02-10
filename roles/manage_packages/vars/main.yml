@@ -11,6 +11,8 @@ packages:
   - git
   - tig
   # Tools.
+  - fail2ban
+  - gawk
   - rsync
   - unrar
   - unzip
@@ -61,6 +63,7 @@ packages:
   - openssh-server
   - apt-transport-https
   - isolinux
+  - keepassxc-cli
   # Fonts.
   - fonts-firacode
   - fonts-inconsolata
