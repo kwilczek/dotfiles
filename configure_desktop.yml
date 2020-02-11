@@ -12,5 +12,6 @@
     - { name: configure_firefox, tags: [firefox] }
     - { name: install_brave, become: yes, tags: [brave] }
     - { name: configure_abcde, tags: [abcde] }
+    - { name: clone_protonvpn_cli, become: yes, tags: [protonvpn] }
 
 ...

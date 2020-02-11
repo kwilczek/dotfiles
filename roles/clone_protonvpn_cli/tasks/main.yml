@@ -1,0 +1,23 @@
+---
+
+- name: clone protonvpn-cli-ng
+  git:
+    repo: "https://github.com/ProtonVPN/protonvpn-cli-ng.git"
+    dest: "/opt/protonvpn-cli-ng"
+    update: "yes"
+
+- name: change ownership of the repo
+  file:
+    path: "/opt/protonvpn-cli-ng"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    recurse: "yes"
+
+- name: install protonvpn-cli-ng
+  become: no
+  pip:
+    editable: "yes"
+    extra_args: "--upgrade"
+    name: "file:///opt/protonvpn-cli-ng"
+
+...
