@@ -9,6 +9,7 @@
     - { name: configure_vim, tags: [vim] }
     - { name: configure_git, tags: [git] }
     - { name: configure_firewall, become: yes, tags: [firewall] }
+    - { name: install_firefox, become: yes, tags: [firefox_current] }
     - { name: configure_firefox, tags: [firefox] }
     - { name: install_brave, become: yes, tags: [brave] }
     - { name: configure_abcde, tags: [abcde] }

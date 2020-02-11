@@ -3,7 +3,7 @@
 # --CreateProfile does not modify the existing prefs.js
 # It is safe to run muliple times.
 - name: create dedicated profiles
-  shell: firefox --no-remote --CreateProfile {{ item }}
+  shell: /opt/firefox/firefox/firefox --no-remote --CreateProfile {{ item }}
   loop: "{{ profiles }}"
 
 # Create and append aliases
@@ -12,7 +12,7 @@
     path: "{{ ansible_env.HOME }}/.bash_aliases"
     create: yes
     insertafter: EOF
-    line: "alias firefox-{{ item }}='firefox --no-remote -P {{ item }}'"
+    line: "alias firefox-{{ item }}='/opt/firefox/firefox/firefox --no-remote -P {{ item }}'"
   loop: "{{ profiles }}"
 
 - name: create launchers directory
@@ -25,7 +25,7 @@
     content: |
       #!/usr/bin/env bash
 
-      firefox-esr --no-remote -P {{ item }}
+      /opt/firefox/firefox/firefox --no-remote -P {{ item }}
     dest: "{{ firefox_launchers_dir }}/firefox.{{ item }}.sh"
     mode: 0755
   loop: "{{ profiles }}"

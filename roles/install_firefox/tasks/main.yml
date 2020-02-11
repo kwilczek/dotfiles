@@ -1,0 +1,30 @@
+---
+
+- name: remove previous Firefox installation
+  file:
+      path: "{{ firefox_dir }}"
+      state: absent
+
+- name: create Firefox install directory
+  file:
+      path: "{{ firefox_dir }}"
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+
+- name: install Firefox
+  unarchive:
+      remote_src: yes
+      src: "{{ firefox_url }}"
+      dest: "{{ firefox_dir }}"
+
+- name: install menu entry
+  copy:
+      src: "kmwil.firefox.current.desktop"
+      dest: "/usr/local/share/applications/"
+      owner: root
+      group: root
+      mode: 0644
+
+...
