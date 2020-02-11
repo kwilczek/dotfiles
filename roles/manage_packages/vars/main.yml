@@ -13,6 +13,7 @@ packages:
   # Tools.
   - fail2ban
   - gawk
+  - dialog
   - rsync
   - unrar
   - unzip
@@ -80,6 +81,8 @@ packages:
   # Programming.
   - python-psutil
   - python3-psutil
+  - python3-setuptools
+  - python3-pip
   - virtualenv
   - virtualenvwrapper
   - python-apt
