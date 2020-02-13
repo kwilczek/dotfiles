@@ -11,6 +11,7 @@
     - { name: configure_firewall, become: yes, tags: [firewall] }
     - { name: install_firefox, become: yes, tags: [firefox_current] }
     - { name: configure_firefox, tags: [firefox] }
+    - { name: install_tor, become: yes, tags: [tor] }
     - { name: install_brave, become: yes, tags: [brave] }
     - { name: configure_abcde, tags: [abcde] }
     - { name: clone_protonvpn_cli, become: yes, tags: [protonvpn] }

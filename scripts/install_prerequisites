@@ -8,6 +8,8 @@ sudo apt-get --yes install    \
   firmware-iwlwifi            \
   ansible-lint                \
   ansible                     \
+  python3-distutils           \
   r8168-dkms                  \
   git                         \
   vim
+sudo apt-get clean

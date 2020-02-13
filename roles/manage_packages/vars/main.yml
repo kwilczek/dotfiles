@@ -64,7 +64,7 @@ packages:
   - openssh-server
   - apt-transport-https
   - isolinux
-  - keepassxc-cli
+  - keepassxc
   # Fonts.
   - fonts-firacode
   - fonts-inconsolata

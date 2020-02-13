@@ -14,7 +14,6 @@
     recurse: "yes"
 
 - name: install protonvpn-cli-ng
-  become: no
   pip:
     editable: "yes"
     extra_args: "--upgrade"
