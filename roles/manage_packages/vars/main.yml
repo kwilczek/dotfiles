@@ -1,8 +1,9 @@
 ---
 
 unwanted_packages:
-  - odemmanager
-  - nattended-upgrades
+  - modemmanager
+  - unattended-upgrades
+  - fwupd
 
 packages:
   # Editors.
@@ -28,6 +29,7 @@ packages:
   - tree
   - curl
   - wget
+  - ngrep
   - ansible
   - ansible-lint
   - rename
@@ -78,6 +80,7 @@ packages:
   # OpenVPN.
   - openvpn
   - network-manager-openvpn-gnome
+  - wireguard
   # Programming.
   - python-psutil
   - python3-psutil
@@ -109,6 +112,20 @@ packages:
   - gstreamer1.0-plugins-bad
   # Multimedia.
   - vlc
+
+texlive:
+  - texlive
+  - texlive-fonts-recommended
+  - texlive-latex-base
+  - texlive-latex-recommended
+  - texlive-pictures
+  - texlive-fonts-extra
+  - texlive-latex-extra
+  - texlive-pstricks
+  - texlive-science
+  - texlive-lang-english
+  - texlive-lang-polish
+  - vim-latexsuite
 
 hardware_e480:
   - firmware-misc-nonfree

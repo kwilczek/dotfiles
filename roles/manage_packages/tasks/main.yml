@@ -14,7 +14,10 @@
     install_recommends: no
     force_apt_get: yes
     update_cache: yes
-    name: "{{ packages }}"
-    state: latest
+    name: "{{ item }}"
+    state: present
+  loop:
+    - texlive
+    - packages
 
 ...
