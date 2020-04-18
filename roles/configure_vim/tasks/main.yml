@@ -14,6 +14,11 @@
     dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors/distinguished.vim"
     mode: 0644
 
+- name: clone gruvbox colorscheme
+  git:
+    repo: https://github.com/morhetz/gruvbox.git
+    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/pack/default/start/gruvbox"
+
 - name: download the vim-lastplace plugin
   get_url:
     url: https://raw.githubusercontent.com/farmergreg/vim-lastplace/master/plugin/vim-lastplace.vim
@@ -26,10 +31,21 @@
     dest: "{{ lookup( 'env', 'HOME' ) }}/.vimrc"
 
 - name: copy templates to the templates directory
+  become: yes
   copy:
     src: "templates"
     dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+
+- name: copy Vim configuration for root
+  become: yes
+  copy:
+    remote_src: yes
+    src: "{{ lookup( 'env', 'HOME' ) }}/{{ item }}"
+    dest: "/root/"
+  loop:
+    - ".vim"
+    - ".vimrc"
 
 ...

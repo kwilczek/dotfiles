@@ -1,7 +1,7 @@
 " Editor settings.
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Get rid of ~ files.
@@ -15,7 +15,12 @@ set laststatus=2
 
 " Nice colorscheme.
 " https://github.com/Lokaltog/vim-distinguished
-colorscheme distinguished
+" colorscheme distinguished
+" gruvbox
+" https://github.com/morhetz/gruvbox.git
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark
+colorscheme gruvbox
 
 " Turn off old stuff.
 set nocompatible
@@ -53,18 +58,14 @@ function GetMode()
 	endif
 endfunction
 
-hi User1 ctermfg=white ctermbg=235
-hi User5 ctermfg=black ctermbg=190
-hi User4 ctermfg=black ctermbg=233
-hi User2 ctermfg=black ctermbg=190 cterm=bold
+" hi User1 ctermfg=white ctermbg=235
+" hi User5 ctermfg=black ctermbg=190
+" hi User4 ctermfg=black ctermbg=233
+" hi User2 ctermfg=black ctermbg=190 cterm=bold
+hi Normal ctermbg=None
 
 set statusline=
 set statusline+=%2*\ %{GetMode()}\ %5*\ [%t][%M]\ %4*
 set statusline+=%=
 set statusline+=%1*\ %y\ %*
 set statusline+=%5*\ %p%%\ \ L%l\ \ C%v\ %*
-
-" Short text width.
-" set textwidth=76
-" highlight ColorColumn ctermbg=234
-" set colorcolumn=+1
