@@ -1,6 +1,9 @@
 # Opis opcji zawiera /usr/lib/apt/apt.systemd.daily.
 # Generalnie: _man apt.conf_ i poszukajcie _Periodic_.
 
+# --no-install-recommends
+APT::Install-Recommends "0";
+
 # Wyłączanie automatycznych skryptów do aktualizacji.
 APT::Periodic::Enable "0";
 
