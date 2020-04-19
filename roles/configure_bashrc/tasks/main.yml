@@ -6,6 +6,10 @@
     path: "{{ lookup( 'env', 'HOME' ) }}/.bashrc"
     block: |
       export EDITOR=vim
+      export WORKON_HOME={{ lookup( 'env', 'HOME' ) }}/.envs
+      if [[ -f "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ]]; then
+          . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+      fi
     insertafter: "EOF"
 
 ...
