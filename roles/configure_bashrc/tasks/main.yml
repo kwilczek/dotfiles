@@ -3,7 +3,7 @@
 - name: configure .bashrc
   become: no
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.bashrc"
+    path: "{{ lookup( 'env', 'HOME' ) }}/.bashrc"
     block: |
       export EDITOR=vim
     insertafter: "EOF"

@@ -2,8 +2,8 @@
 
 - hosts: localhost
   roles:
-    - { name: manage_packages, become: yes, tags: [apt] }
     - { name: configure_apt, become: yes, tags: [confapt] }
+    - { name: manage_packages, become: yes, tags: [apt] }
     - { name: disable_services, become: yes, tags: [systemd] }
     - { name: gpg_setup, tags: [gpg,gnupg] }
     - { name: configure_vim, tags: [vim] }
@@ -15,7 +15,11 @@
     - { name: install_tor, become: yes, tags: [tor] }
     - { name: install_brave, become: yes, tags: [brave] }
     - { name: configure_abcde, tags: [abcde] }
-    - { name: clone_protonvpn_cli, become: yes, tags: [protonvpn] }
+    - { name: install_protonvpn, become: yes, tags: [protonvpn] }
     - { name: configure_cmdline_linux, become: yes, tags: [cmdline_linux] }
+    - { name: node_exporter, become: yes, tags: [node_exporter] }
+    - { name: prometheus, become: yes, tags: [prometheus] }
+    - { name: grafana, become: yes, tags: [grafana] }
+    - { name: testrole, become: yes, tags: [testrole] }
 
 ...

@@ -9,7 +9,7 @@
 # Create and append aliases
 - name: create and append aliases
   lineinfile:
-    path: "{{ ansible_env.HOME }}/.bash_aliases"
+    path: "{{ lookup( 'env', 'HOME' ) }}/.bash_aliases"
     create: yes
     insertafter: EOF
     line: "alias firefox-{{ item }}='/opt/firefox/firefox/firefox --no-remote -P {{ item }}'"
