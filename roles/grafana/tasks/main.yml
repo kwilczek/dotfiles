@@ -1,0 +1,73 @@
+---
+
+- name: create group for the Grafana
+  group:
+    gid: "{{ grafana_user_uid_gid }}"
+    name: "{{ grafana_user }}"
+    state: "present"
+
+- name: create user for the Grafana
+  user:
+    comment: "Grafana"
+    group: "{{ grafana_user }}"
+    state: "present"
+    name: "{{ grafana_user }}"
+    uid: "{{ grafana_user_uid_gid }}"
+    create_home: yes
+    shell: "/sbin/nologin"
+
+- name: remove previous installation
+  file:
+      path: "{{ grafana_dir }}"
+      state: "absent"
+
+- name: create {{ grafana_dir }}
+  file:
+      path: "{{ grafana_dir }}"
+      state: "directory"
+      owner: "{{ grafana_user }}"
+      group: "{{ grafana_user }}"
+      mode: "0755"
+
+- name: download Grafana
+  unarchive:
+      src: "{{ grafana_url }}"
+      dest: "{{ grafana_dir }}"
+      remote_src: yes
+      owner: "{{ grafana_user }}"
+      group: "{{ grafana_user }}"
+      extra_opts:
+          - --strip-components=1
+
+- name: copy systemd service
+  template:
+      src: "{{ grafana_service }}.j2"
+      dest: "/etc/systemd/system/{{ grafana_service }}"
+      owner: root
+      group: root
+      mode: 0644
+
+- name: copy {{ grafana_config }} configuration file
+  template:
+      src: "{{ grafana_config }}"
+      dest: "{{ grafana_dir }}/conf/{{ grafana_config }}"
+      owner: "{{ grafana_user }}"
+      group: "{{ grafana_user }}"
+      mode: 0644
+
+- name: copy datasource configuration files
+  template:
+      src: "{{ item }}.j2"
+      dest: "{{ grafana_dir }}/conf/provisioning/datasources/{{ item }}"
+      owner: "{{ grafana_user }}"
+      group: "{{ grafana_user }}"
+      mode: 0644
+  loop: "{{ grafana_datasources }}"
+
+- name: start and enable Grafana
+  systemd:
+      name: "{{ grafana_service }}"
+      state: restarted
+      enabled: yes
+
+...
