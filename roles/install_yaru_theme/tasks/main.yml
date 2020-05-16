@@ -1,0 +1,12 @@
+---
+
+- name: install yaru packages
+  apt:
+    install_recommends: no
+    force_apt_get: yes
+    update_cache: yes
+    deb: "{{ item }}"
+    state: present
+  loop: "{{ yaru }}"
+
+...
