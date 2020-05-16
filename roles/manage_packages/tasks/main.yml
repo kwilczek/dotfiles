@@ -20,4 +20,14 @@
     - "{{ texlive }}"
     - "{{ packages }}"
 
+- name: install hardware-related packages
+  apt:
+    install_recommends: no
+    force_apt_get: yes
+    update_cache: yes
+    name: "{{ hardware_e480 }}"
+    state: present
+  when:
+    - ansible_product_version == "ThinkPad E480"
+
 ...

@@ -16,7 +16,6 @@ packages:
   - gawk
   - dialog
   - rsync
-  - unrar
   - unzip
   - p7zip-full
   - zip
@@ -82,16 +81,13 @@ packages:
   - network-manager-openvpn-gnome
   - wireguard
   # Programming.
-  - python-psutil
   - python3-psutil
   - python3-setuptools
   - python3-pip
   - virtualenv
   - virtualenvwrapper
-  - python-apt
   - python3-apt
   - python3-venv
-  - ipython
   - ipython3
   - golang
   # Audio.
