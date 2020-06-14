@@ -2,16 +2,25 @@
 
 - name: purge unattended-upgrades
   apt:
-    force_apt_get: yes
-    update_cache: yes
-    name: unattended-upgrades
-    state: absent
-    purge: yes
+    force_apt_get: "yes"
+    update_cache: "yes"
+    name: "unattended-upgrades"
+    state: "absent"
+    purge: "yes"
 
 - name: copy APT settings
   copy:
-    src: 10periodic
-    dest: /etc/apt/apt.conf.d/10periodic
-    force: yes
+    src: "10periodic"
+    dest: "/etc/apt/apt.conf.d/10periodic"
+    force: "yes"
+
+- name: disable APT timers
+  systemd:
+    state: "stopped"
+    enabled: "no"
+    name: "{{ item }}"
+  loop:
+    - "apt-daily.timer"
+    - "apt-daily-upgrade.timer"
 
 ...

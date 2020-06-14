@@ -2,7 +2,7 @@
 
 - hosts: localhost
   roles:
-    - { name: configure_apt, become: yes, tags: [confapt] }
+    - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [apt] }
     - { name: gpg_setup, tags: [gpg,gnupg] }
     - { name: configure_vim, tags: [vim] }
