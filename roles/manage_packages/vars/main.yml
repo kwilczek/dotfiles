@@ -11,6 +11,7 @@ packages:
   # Source control.
   - git
   - tig
+  - gitg
   # Tools.
   - fail2ban
   - gawk
