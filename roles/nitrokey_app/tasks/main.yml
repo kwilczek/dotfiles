@@ -1,0 +1,11 @@
+---
+
+- name: "download Nitrokey Application"
+  get_url:
+      url: "{{ nitrokey_url }}"
+      dest: "{{ nitrokey_dir }}/{{ nitrokey_app }}"
+      owner: "root"
+      group: "root"
+      mode: "0755"
+
+...

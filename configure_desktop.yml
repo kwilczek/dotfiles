@@ -6,6 +6,7 @@
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [manage_packages] }
     - { name: gpg_setup, tags: [gpg,gnupg] }
+    - { name: nitrokey_app, become: yes, tags: [nitrokey_app] }
     - { name: configure_vim, tags: [vim] }
     - { name: configure_bashrc, tags: [bash] }
     - { name: configure_git, tags: [git] }
