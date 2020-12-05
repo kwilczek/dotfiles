@@ -8,4 +8,11 @@
       group: "root"
       mode: "0755"
 
+- name: "copy Nitrokey App icons"
+  copy:
+      src: "hicolor"
+      dest: "/usr/local/share/icons/"
+      owner: "root"
+      group: "root"
+
 ...
