@@ -16,8 +16,7 @@
     update_cache: "yes"
     name: "{{ item }}"
     state: "present"
-  loop:
-    - "{{ packages }}"
+  loop: "{{ packages }}"
 
 - name: "install hardware-related packages"
   apt:

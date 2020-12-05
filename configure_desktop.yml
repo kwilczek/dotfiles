@@ -1,6 +1,6 @@
 ---
 
-- hosts: localhost
+- hosts: all
   roles:
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [apt] }
