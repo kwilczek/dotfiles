@@ -2,12 +2,6 @@
 
 - hosts: all
 
-  pre_tasks:
-    - name: "make sure that --limit option is used"
-      fail:
-          msg: "Please use --limit option!"
-      when: ansible_limit is not defined
-
   roles:
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [manage_packages] }
