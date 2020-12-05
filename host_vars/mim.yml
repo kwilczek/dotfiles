@@ -1,0 +1,22 @@
+---
+
+ansible_connection: "local"
+ansible_host: "localhost"
+
+packages:
+    - "{{ gnome }}"
+    - "{{ editors }}"
+    - "{{ vcs }}"
+    - "{{ security }}"
+    - "{{ nitrokey }}"
+    - "{{ system_tools }}"
+    - "{{ network_tools }}"
+    - "{{ programming_general }}"
+    - "{{ fonts }}"
+    - "{{ thunderbird }}"
+    - "{{ vpn }}"
+    - "{{ python }}"
+    - "{{ multimedia }}"
+    - "{{ texlive }}"
+
+---

@@ -17,20 +17,7 @@
     name: "{{ item }}"
     state: "present"
   loop:
-    - "{{ gnome }}"
-    - "{{ editors }}"
-    - "{{ vcs }}"
-    - "{{ security }}"
-    - "{{ nitrokey }}"
-    - "{{ system_tools }}"
-    - "{{ network_tools }}"
-    - "{{ programming_general }}"
-    - "{{ fonts }}"
-    - "{{ thunderbird }}"
-    - "{{ vpn }}"
-    - "{{ python }}"
-    - "{{ multimedia }}"
-    - "{{ texlive }}"
+    - "{{ packages }}"
 
 - name: "install hardware-related packages"
   apt:
