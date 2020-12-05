@@ -19,10 +19,6 @@ security:
   - gnupg-agent
   - keepassxc
 
-nitrokey:
-  - scdaemon
-  - nitrokey-app
-
 system_tools:
   - apg
   - apt-transport-https
