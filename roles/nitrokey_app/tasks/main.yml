@@ -15,4 +15,12 @@
       owner: "root"
       group: "root"
 
+- name: "install menu entry"
+  copy:
+      src: "nitrokey_app.desktop"
+      dest: "/usr/local/share/applications/"
+      owner: "root"
+      group: "root"
+      mode: "0644"
+
 ...
