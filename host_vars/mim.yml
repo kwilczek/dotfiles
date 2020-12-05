@@ -8,7 +8,6 @@ packages:
     - "{{ editors }}"
     - "{{ vcs }}"
     - "{{ security }}"
-    - "{{ nitrokey }}"
     - "{{ system_tools }}"
     - "{{ network_tools }}"
     - "{{ programming_general }}"
