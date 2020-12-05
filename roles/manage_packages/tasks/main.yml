@@ -18,26 +18,4 @@
     state: "present"
   loop: "{{ packages }}"
 
-- name: "install hardware-related packages"
-  apt:
-    install_recommends: "no"
-    force_apt_get: "yes"
-    update_cache: "yes"
-    name: "{{ hardware_e480 }}"
-    state: "present"
-  when:
-    - ansible_product_version == "ThinkPad E480" or
-      ansible_product_name == "ThinkPad E480"
-
-- name: "install hardware-related packages"
-  apt:
-    install_recommends: "no"
-    force_apt_get: "yes"
-    update_cache: "yes"
-    name: "{{ hardware_5401 }}"
-    state: "present"
-  when:
-    - ansible_product_version == "Latitude 5401" or
-      ansible_product_name == "Latitude 5401"
-
 ...
