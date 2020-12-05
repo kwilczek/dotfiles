@@ -1,33 +1,57 @@
 ---
 
-- name: remove unwanted packages
+- name: "remove unwanted packages"
   apt:
-    force_apt_get: yes
-    update_cache: yes
+    force_apt_get: "yes"
+    update_cache: "yes"
     name: "{{ unwanted_packages }}"
-    state: absent
-    purge: yes
-    autoremove: yes
+    state: "absent"
+    purge: "yes"
+    autoremove: "yes"
 
-- name: install packages
+- name: "install packages"
   apt:
-    install_recommends: no
-    force_apt_get: yes
-    update_cache: yes
+    install_recommends: "no"
+    force_apt_get: "yes"
+    update_cache: "yes"
     name: "{{ item }}"
-    state: present
+    state: "present"
   loop:
+    - "{{ gnome }}"
+    - "{{ editors }}"
+    - "{{ vcs }}"
+    - "{{ security }}"
+    - "{{ nitrokey }}"
+    - "{{ system_tools }}"
+    - "{{ network_tools }}"
+    - "{{ programming_general }}"
+    - "{{ fonts }}"
+    - "{{ thunderbird }}"
+    - "{{ vpn }}"
+    - "{{ python }}"
+    - "{{ multimedia }}"
     - "{{ texlive }}"
-    - "{{ packages }}"
 
-- name: install hardware-related packages
+- name: "install hardware-related packages"
   apt:
-    install_recommends: no
-    force_apt_get: yes
-    update_cache: yes
+    install_recommends: "no"
+    force_apt_get: "yes"
+    update_cache: "yes"
     name: "{{ hardware_e480 }}"
-    state: present
+    state: "present"
   when:
-    - ansible_product_version == "ThinkPad E480"
+    - ansible_product_version == "ThinkPad E480" or
+      ansible_product_name == "ThinkPad E480"
+
+- name: "install hardware-related packages"
+  apt:
+    install_recommends: "no"
+    force_apt_get: "yes"
+    update_cache: "yes"
+    name: "{{ hardware_5401 }}"
+    state: "present"
+  when:
+    - ansible_product_version == "Latitude 5401" or
+      ansible_product_name == "Latitude 5401"
 
 ...
