@@ -1,0 +1,12 @@
+---
+
+grafana_url: "https://dl.grafana.com/oss/release/grafana-6.4.1.linux-amd64.tar.gz"
+grafana_dir: "/ssd1/grafana"
+grafana_service: "grafana.service"
+grafana_config: "custom.ini"
+grafana_datasources:
+    - "prometheus_datasource.yaml"
+grafana_user: "grafana"
+grafana_user_uid_gid: 60004
+
+...

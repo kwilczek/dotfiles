@@ -2,24 +2,21 @@
 
 - hosts: localhost
   roles:
-    - { name: configure_apt, become: yes, tags: [confapt] }
+    - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [apt] }
-    - { name: disable_services, become: yes, tags: [systemd] }
     - { name: gpg_setup, tags: [gpg,gnupg] }
     - { name: configure_vim, tags: [vim] }
     - { name: configure_bashrc, tags: [bash] }
     - { name: configure_git, tags: [git] }
     - { name: configure_firewall, become: yes, tags: [firewall] }
-    - { name: install_firefox, become: yes, tags: [firefox_current] }
-    - { name: configure_firefox, tags: [firefox] }
+    - { name: install_firefox, become: yes, tags: [install_firefox] }
+    - { name: configure_firefox, tags: [configure_firefox] }
     - { name: install_tor, become: yes, tags: [tor] }
     - { name: install_brave, become: yes, tags: [brave] }
+    - { name: install_yaru_theme, become: yes, tags: [yaru] }
     - { name: configure_abcde, tags: [abcde] }
     - { name: install_protonvpn, become: yes, tags: [protonvpn] }
     - { name: configure_cmdline_linux, become: yes, tags: [cmdline_linux] }
     - { name: node_exporter, become: yes, tags: [node_exporter] }
-    - { name: prometheus, become: yes, tags: [prometheus] }
-    - { name: grafana, become: yes, tags: [grafana] }
-    - { name: testrole, become: yes, tags: [testrole] }
 
 ...

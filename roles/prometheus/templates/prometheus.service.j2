@@ -1,0 +1,14 @@
+[Unit]
+Description=Prometheus Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User={{ prometheus_user }}
+ExecStart={{ prometheus_dir }}/prometheus \
+    --config.file {{ prometheus_dir }}/{{ prometheus_config }} \
+    --web.listen-address="{{ ansible_host }}:9090" \
+    --storage.tsdb.path="{{ prometheus_tsdb }}"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+{# Te parametry są wspólne dla wszystkich hostów, nie chcemy #}
+{# zbierać informacji o ZFS, etc.                            #}
+{% set node_exporter_options = 'OPTIONS="--no-collector.arp --no-collector.bcache --no-collector.bonding --no-collector.infiniband --no-collector.mdadm --no-collector.zfs --collector.textfile.directory=' %}
+
+{# Dopełniamy konfigurację. #}
+{% set node_exporter_options = node_exporter_options + ' --web.listen-address=' + ansible_host + ':9100"' %}
+
+{# Ostatecznie wypisujemy całą konfigurację node_exportera #}
+{{ node_exporter_options }}
