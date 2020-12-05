@@ -16,7 +16,7 @@
       group: "root"
 
 - name: "install menu entry"
-  copy:
+  template:
       src: "nitrokey_app.desktop"
       dest: "/usr/local/share/applications/"
       owner: "root"
