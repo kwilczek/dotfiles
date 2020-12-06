@@ -2,17 +2,6 @@
 
 - hosts: all
 
-  # nVidia notes.
-  # nvidia-driver installation is interactive, also a subject
-  # to change. nVidia drivers installation is manual.
-  # Install:
-  # nvidia-driver
-  # nvidia-smi
-  # bumblebee-nvidia
-  # primus-nvidia
-  # primus-vk-nvidia
-  # bbswitch
-
   roles:
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [manage_packages] }
@@ -40,5 +29,17 @@
         command: "apt-get clean"
         args:
             warn: False
+
+  # nVidia notes.
+  # nvidia-driver installation is interactive, also a subject
+  # to change. nVidia drivers installation is manual.
+  # Install last.
+  #
+  # nvidia-driver
+  # nvidia-smi
+  # bumblebee-nvidia
+  # primus-nvidia
+  # primus-vk-nvidia
+  # bbswitch
 
 ...
