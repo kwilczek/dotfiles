@@ -8,7 +8,7 @@
     - { name: gpg_setup, tags: [gpg,gnupg] }
     - { name: nitrokey_app, become: yes, tags: [nitrokey_app] }
     - { name: configure_vim, tags: [configure_vim] }
-    - { name: configure_bashrc, tags: [bash] }
+    - { name: configure_bashrc, tags: [configure_bashrc] }
     - { name: configure_git, tags: [git] }
     - { name: configure_firewall, become: yes, tags: [firewall] }
     - { name: install_firefox, become: yes, tags: [install_firefox] }
