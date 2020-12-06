@@ -2,9 +2,6 @@
 
 - hosts: all
 
-  tasks:
-      - import_role:
-          name: "handlers"
   roles:
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: manage_packages, become: yes, tags: [manage_packages] }
@@ -23,5 +20,10 @@
     - { name: install_protonvpn, become: yes, tags: [protonvpn] }
     - { name: configure_cmdline_linux, become: yes, tags: [cmdline_linux] }
     - { name: node_exporter, become: yes, tags: [node_exporter] }
+
+
+  handlers:
+      - name: "apt_get_clean"
+        command: "apt-get clean"
 
 ...
