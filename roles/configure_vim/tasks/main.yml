@@ -2,7 +2,7 @@
 
 - name: "create .vim directory structure"
   file:
-    path: "{{ lookup( 'env', 'HOME' ) }}/.vim/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
     state: "directory"
   loop:
     - "colors"
@@ -11,38 +11,38 @@
 - name: "download the distinguished colorscheme"
   get_url:
     url: "https://raw.githubusercontent.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim"
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/colors/distinguished.vim"
+    dest: "{{ ansible_env.HOME }}/.vim/colors/distinguished.vim"
     mode: "0644"
 
 - name: "clone gruvbox colorscheme"
   git:
     repo: "https://github.com/morhetz/gruvbox.git"
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/pack/default/start/gruvbox"
+    dest: "{{ ansible_env.HOME }}/.vim/pack/default/start/gruvbox"
 
 - name: "download the vim-lastplace plugin"
   get_url:
     url: "https://raw.githubusercontent.com/farmergreg/vim-lastplace/master/plugin/vim-lastplace.vim"
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/plugin/lastplace.vim"
+    dest: "{{ ansible_env.HOME }}/.vim/plugin/lastplace.vim"
     mode: "0644"
 
 - name: "copy .vimrc"
   copy:
     src: "vimrc"
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.vimrc"
+    dest: "{{ ansible_env.HOME }}/.vimrc"
 
 - name: "copy templates to the templates directory"
   become: "yes"
   copy:
     src: "templates"
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.vim/"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    dest: "{{ ansible_env.HOME }}/.vim/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
 
 - name: "copy Vim configuration for root"
   become: "yes"
   copy:
     remote_src: "yes"
-    src: "{{ lookup( 'env', 'HOME' ) }}/{{ item }}"
+    src: "{{ ansible_env.HOME }}/{{ item }}"
     dest: "/root/"
   loop:
     - ".vim"
