@@ -21,9 +21,13 @@
     - { name: configure_cmdline_linux, become: yes, tags: [cmdline_linux] }
     - { name: node_exporter, become: yes, tags: [node_exporter] }
 
-
+  # Clear downloaded .deb packages.
+  # Currently Ansible does not support this in a module.
   handlers:
       - name: "apt_get_clean"
+        become: "yes"
         command: "apt-get clean"
+        args:
+            warn: False
 
 ...
