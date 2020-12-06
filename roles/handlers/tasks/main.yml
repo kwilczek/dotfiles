@@ -1,0 +1,7 @@
+---
+
+handlers:
+    - name: "apt_get_clean"
+      command: "apt-get clean"
+
+...

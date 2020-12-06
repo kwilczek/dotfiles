@@ -1,5 +1,15 @@
 ---
 
+- name: "install smart card daemon"
+  apt:
+    install_recommends: "no"
+    force_apt_get: "yes"
+    update_cache: "yes"
+    name: "scdaemon"
+    state: "present"
+  notify:
+      - "apt_get_clean"
+
 - name: "download Nitrokey Application"
   get_url:
       url: "{{ nitrokey_url }}"
