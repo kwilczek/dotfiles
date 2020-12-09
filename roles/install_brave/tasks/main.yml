@@ -18,5 +18,7 @@
     update_cache: "yes"
     state: "present"
     name: "brave-browser"
+  notify:
+      - "apt_get_clean"
 
 ...

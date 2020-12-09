@@ -10,5 +10,7 @@
   loop:
       - "wireguard-dkms"
       - "wireguard-tools"
+  notify:
+      - "apt_get_clean"
 
 ...
