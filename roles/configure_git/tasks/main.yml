@@ -1,8 +1,8 @@
 ---
 
-- name: copy .gitconfig file
+- name: "install .gitconfig file"
   copy:
-    src: gitconfig
-    dest: "{{ lookup( 'env', 'HOME' ) }}/.gitconfig"
+    src: "gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
 
 ...
