@@ -1,15 +1,15 @@
 [Desktop Entry]
 Version=1.0
-Name=Brave {{ item | title }} Web Browser
+Name=Brave {{ item | title }}
 # Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
-GenericName=Web Browser {{ item | title }}
-GenericName[en_GB]=Web Browser {{ item | title }}
-GenericName[pl]=Przeglądarka WWW {{ item | title }}
+GenericName=Web Browser
+GenericName[en_GB]=Web Browser
+GenericName[pl]=Przeglądarka WWW
 # Gnome and KDE 3 uses Comment.
-Comment=Access the Internet {{ item | title }}
-Comment[en_GB]=Access the Internet {{ item | title }}
-Comment[pl]=Skorzystaj z internetu {{ item | title }}
+Comment=Access the Internet
+Comment[en_GB]=Access the Internet
+Comment[pl]=Skorzystaj z internetu
 Exec=/usr/bin/brave-browser-stable --user-data-dir={{ brave_profiles_dir}}/{{ item }} %U
 StartupNotify=true
 Terminal=false
