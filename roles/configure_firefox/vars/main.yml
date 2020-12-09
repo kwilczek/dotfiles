@@ -1,15 +1,15 @@
 ---
 
 profiles:
-  - bank
-  - play
-  - work
-  - mail
-  - gmail
-  - facebook
-  - tidal
-  - netflix
+  - "bank"
+  - "play"
+  - "work"
+  - "mail"
+  - "gmail"
+  - "facebook"
+  - "tidal"
+  - "netflix"
 
-firefox_launchers_dir: "/home/{{ username }}/bin/firefox"
+firefox_launchers_dir: "{{ ansible_env.HOME }}/bin/firefox"
 
 ...

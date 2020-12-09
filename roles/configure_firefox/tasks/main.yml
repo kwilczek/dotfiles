@@ -2,49 +2,56 @@
 
 # --CreateProfile does not modify the existing prefs.js
 # It is safe to run muliple times.
-- name: create dedicated profiles
-  shell: /opt/firefox/firefox/firefox --no-remote --CreateProfile {{ item }}
+- name: "create dedicated profiles"
+  shell: "{{ firefox_dir }}/firefox --no-remote --CreateProfile {{ item }}"
   loop: "{{ profiles }}"
+
 
 # Create and append aliases
-- name: create and append aliases
+- name: "create and append aliases"
   lineinfile:
-    path: "{{ lookup( 'env', 'HOME' ) }}/.bash_aliases"
-    create: yes
-    insertafter: EOF
-    line: "alias firefox-{{ item }}='/opt/firefox/firefox/firefox --no-remote -P {{ item }}'"
+    path: "{{ ansible_env.HOME }}/.bash_aliases"
+    create: "yes"
+    insertafter: "EOF"
+    line: "alias firefox-{{ item }}='{{ firefox_dir }}/firefox --no-remote -P {{ item }}'"
   loop: "{{ profiles }}"
 
-- name: create launchers directory
+
+- name: "create launchers directory"
   file:
     path: "{{ firefox_launchers_dir }}"
-    state: directory
+    state: "directory"
 
-- name: create launchers for all profiles
+
+- name: "create launchers for all profiles"
   copy:
     content: |
       #!/usr/bin/env bash
 
-      /opt/firefox/firefox/firefox --no-remote -P {{ item }}
+      {{ firefox_dir }}/firefox --no-remote -P {{ item }}
     dest: "{{ firefox_launchers_dir }}/firefox.{{ item }}.sh"
-    mode: 0755
+    mode: "0755"
   loop: "{{ profiles }}"
 
-- name: create local desktop entries directory
-  become: yes
+
+- name: "create local desktop entries directory"
+  become: "yes"
   file:
     path: "/usr/local/share/applications"
-    state: directory
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: "0755"
 
-- name: create desktop entries for all profiles
-  become: yes
+
+- name: "create desktop entries for all profiles"
+  become: "yes"
   template:
-    src: "kmwil.firefox.desktop.j2"
+    src: "kmwil.firefox.desktop"
     dest: "/usr/local/share/applications/kmwil.firefox.{{ item }}.desktop"
-    owner: root
-    group: root
-    mode: 0644
+    owner: "root"
+    group: "root"
+    mode: "0644"
   loop: "{{ profiles }}"
-
 
 ...
