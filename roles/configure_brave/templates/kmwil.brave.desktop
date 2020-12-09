@@ -1,0 +1,32 @@
+[Desktop Entry]
+Version=1.0
+Name=Brave {{ item | title }} Web Browser
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Web Browser {{ item | title }}
+GenericName[en_GB]=Web Browser {{ item | title }}
+GenericName[pl]=Przeglądarka WWW {{ item | title }}
+# Gnome and KDE 3 uses Comment.
+Comment=Access the Internet {{ item | title }}
+Comment[en_GB]=Access the Internet {{ item | title }}
+Comment[pl]=Skorzystaj z internetu {{ item | title }}
+Exec=/usr/bin/brave-browser-stable --user-data-dir={{ brave_profiles_dir}}/{{ item }} %U
+StartupNotify=true
+Terminal=false
+Icon=brave-browser
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/ftp;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New {{ item | title }} Window
+Name[en_GB]=New {{ item | title }} Window
+Name[pl]=Nowe okno {{ item | title }}
+Exec=/usr/bin/brave-browser-stable --user-data-dir={{ brave_profiles_dir}}/{{ item }}
+
+[Desktop Action new-private-window]
+Name=New {{ item | title }} Incognito Window
+Name[en_GB]=New {{ item | title }} Incognito window
+Name[pl]=Nowe okno incognito {{ item | title }}
+Exec=/usr/bin/brave-browser-stable --user-data-dir={{ brave_profiles_dir}}/{{ item }} --incognito

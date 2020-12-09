@@ -19,4 +19,17 @@ packages:
     - "{{ texlive }}"
     - "{{ hardware_5401 }}"
 
+firefox_profiles_dir: "{{ ansible_env.HOME }}/.firefox_profiles"
+brave_profiles_dir: "{{ ansible_env.HOME }}/.brave_profiles"
+browser_profiles:
+    - "bank"
+    - "play"
+    - "work"
+    - "mail"
+    - "gmail"
+    - "uw"
+    - "facebook"
+    - "tidal"
+    - "netflix"
+
 ...
