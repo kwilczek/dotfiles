@@ -1,9 +1,0 @@
----
-
-yaru:
-  - "http://mirrors.kernel.org/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_20.04.6_all.deb"
-  - "http://mirrors.kernel.org/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_20.04.6_all.deb"
-  - "http://mirrors.kernel.org/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_20.04.6_all.deb"
-  - "http://mirrors.kernel.org/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_20.04.6_all.deb"
-
-...
