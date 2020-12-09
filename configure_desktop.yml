@@ -17,7 +17,6 @@
     - { name: install_brave, become: yes, tags: [install_brave] }
     - { name: install_wireguard, become: yes, tags: [wireguard] }
 
-    - { name: configure_abcde, tags: [abcde] }
     - { name: install_protonvpn, become: yes, tags: [protonvpn] }
     - { name: node_exporter, become: yes, tags: [node_exporter] }
 

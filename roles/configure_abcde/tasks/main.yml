@@ -1,9 +1,0 @@
----
-
-- name: copy abcde configuration file
-  copy:
-    src: abcde.conf
-    dest: "{{ ansible_env.HOME }}/.abcde.conf"
-    mode: 0644
-
-...
