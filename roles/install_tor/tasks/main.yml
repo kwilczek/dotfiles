@@ -5,12 +5,12 @@
       path: "{{ tor_dir }}"
       state: "absent"
 
-- name: "create Tor Browser install directory"
+- name: "create Tor Browser installation directory"
   file:
       path: "{{ tor_dir }}"
       state: "directory"
-      owner: "root"
-      group: "root"
+      owner: "{{ ansible_env.USER }}"
+      group: "{{ ansible_env.USER }}"
       mode: "0755"
 
 - name: "install Tor Browser"
@@ -18,15 +18,10 @@
       remote_src: "yes"
       src: "{{ tor_url }}"
       dest: "{{ tor_dir }}"
+      owner: "{{ ansible_env.USER }}"
+      group: "{{ ansible_env.USER }}"
       extra_opts:
         - "--strip-components=1"
-
-- name: "change ownership of the Tor directory"
-  file:
-    path: "{{ tor_dir }}"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
-    recurse: "yes"
 
 - name: "install .desktop file"
   become: "no"
