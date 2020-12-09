@@ -19,7 +19,6 @@
 
     - { name: configure_abcde, tags: [abcde] }
     - { name: install_protonvpn, become: yes, tags: [protonvpn] }
-    - { name: configure_cmdline_linux, become: yes, tags: [cmdline_linux] }
     - { name: node_exporter, become: yes, tags: [node_exporter] }
 
   # Clear downloaded .deb packages.
