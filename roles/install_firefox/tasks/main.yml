@@ -9,15 +9,17 @@
   file:
       path: "{{ firefox_dir }}"
       state: "directory"
-      owner: "root"
-      group: "root"
-      mode: "0755"
+      owner: "{{ ansible_env.USER }}"
+      group: "{{ ansible_env.USER }}"
+      mode: "0750"
 
 - name: "install Firefox"
   unarchive:
       remote_src: "yes"
       src: "{{ firefox_url }}"
       dest: "{{ firefox_dir }}"
+      owner: "{{ ansible_env.USER }}"
+      group: "{{ ansible_env.USER }}"
       extra_opts:
           - "--strip-components=1"
 

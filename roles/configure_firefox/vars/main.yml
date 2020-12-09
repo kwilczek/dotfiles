@@ -1,11 +1,13 @@
 ---
 
+profiles_dir: "{{ ansible_env.HOME }}/.firefox_profiles"
 profiles:
   - "bank"
   - "play"
   - "work"
   - "mail"
   - "gmail"
+  - "uw"
   - "facebook"
   - "tidal"
   - "netflix"
