@@ -1,0 +1,18 @@
+---
+
+- name: "start and enable systemd-resolved"
+  systemd:
+    name: "systemd-resolved.service"
+    state: "started"
+    enabled: "yes"
+
+
+- name: "symlink resolv.conf to systemd stub file"
+  file:
+    src: "/run/systemd/resolve/stub-resolv.conf"
+    dest: "/etc/resolv.conf"
+    owner: "root"
+    group: "root"
+    state: "link"
+
+...

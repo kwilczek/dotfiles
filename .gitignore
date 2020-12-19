@@ -1,2 +1,3 @@
 *.retry
 devel.yml
+.vault_pass

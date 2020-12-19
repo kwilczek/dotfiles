@@ -4,6 +4,7 @@
 
   roles:
     - { name: configure_apt, become: yes, tags: [configure_apt] }
+    - { name: systemd_resolved, become: yes, tags: [systemd_resolved] }
     - { name: manage_packages, become: yes, tags: [manage_packages] }
     - { name: gpg_setup, tags: [gpg,gnupg] }
     - { name: nitrokey_app, become: yes, tags: [nitrokey_app] }
