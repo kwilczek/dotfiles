@@ -15,8 +15,6 @@
     - { name: install_firefox, become: yes, tags: [install_firefox] }
     - { name: configure_firefox, tags: [configure_firefox] }
     - { name: install_tor, become: yes, tags: [tor] }
-    - { name: install_brave, become: yes, tags: [install_brave] }
-    - { name: configure_brave, tags: [configure_brave] }
     - { name: install_wireguard, become: yes, tags: [wireguard] }
 
     - { name: install_protonvpn, become: yes, tags: [protonvpn] }
