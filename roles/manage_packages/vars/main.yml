@@ -145,4 +145,8 @@ hardware_e480:
 hardware_5401:
   - "firmware-iwlwifi"
 
+hardware_x230:
+  - "firmware-iwlwifi"
+  - "firmware-misc-nonfree"
+
 ...
