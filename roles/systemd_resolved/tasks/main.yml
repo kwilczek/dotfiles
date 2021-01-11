@@ -6,7 +6,6 @@
     state: "started"
     enabled: "yes"
 
-
 - name: "symlink resolv.conf to systemd stub file"
   file:
     src: "/run/systemd/resolve/stub-resolv.conf"
@@ -14,5 +13,6 @@
     owner: "root"
     group: "root"
     state: "link"
+    force: "yes"
 
 ...
