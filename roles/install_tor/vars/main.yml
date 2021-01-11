@@ -1,6 +1,6 @@
 ---
 
-tor_url: "https://www.torproject.org/dist/torbrowser/10.0.5/tor-browser-linux64-10.0.5_en-US.tar.xz"
+tor_url: "https://www.torproject.org/dist/torbrowser/10.0.7/tor-browser-linux64-10.0.7_en-US.tar.xz"
 tor_dir: "/opt/tor_browser"
 
 ...
