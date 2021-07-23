@@ -1,12 +1,14 @@
 ---
 
+
 unwanted_packages:
   - "fwupd"
   - "modemmanager"
-  - "unattended-upgrades"
+
 
 editors:
   - "vim"
+
 
 vcs:
   - "git"
@@ -14,10 +16,12 @@ vcs:
   - "subversion"
   - "tig"
 
+
 security:
   - "fail2ban"
   - "gnupg-agent"
-  - "keepassxc"
+  - "mat2"
+
 
 system_tools:
   - "apg"
@@ -33,6 +37,7 @@ system_tools:
   - "dmidecode"
   - "ethtool"
   - "gawk"
+  - "genisoimage"
   - "hdparm"
   - "htop"
   - "iftop"
@@ -54,9 +59,9 @@ system_tools:
   - "xorriso"
   - "zip"
 
+
 network_tools:
   - "curl"
-  - "minicom"
   - "net-tools"
   - "nethogs"
   - "ngrep"
@@ -69,8 +74,10 @@ network_tools:
   - "wget"
   - "whois"
 
+
 gnome:
   - "gnome-tweak-tool"
+
 
 programming_general:
   - "build-essential"
@@ -78,29 +85,29 @@ programming_general:
   - "linux-headers-amd64"
   - "shellcheck"
 
-fonts:
-  - "fonts-firacode"
-  - "fonts-inconsolata"
 
 thunderbird:
-  - "enigmail"
   - "thunderbird"
   - "thunderbird-l10n-pl"
+
 
 vpn:
   - "network-manager-openvpn-gnome"
   - "openvpn"
   - "wireguard"
 
+
 python:
   - "ipython3"
   - "python3-apt"
+  - "python3-netaddr"
   - "python3-pip"
   - "python3-psutil"
   - "python3-setuptools"
   - "python3-venv"
   - "virtualenv"
   - "virtualenvwrapper"
+
 
 audio_processing:
   # Musicbrainz abcde tool will not work without this packages.
@@ -119,9 +126,11 @@ audio_processing:
   - "mkcue"
   - "normalize-audio"
 
+
 multimedia:
   - "flac"
   - "vlc"
+
 
 texlive:
   - "texlive"
@@ -137,16 +146,20 @@ texlive:
   - "texlive-science"
   - "vim-latexsuite"
 
+
 hardware_e480:
   - "firmware-iwlwifi"
   - "firmware-misc-nonfree"
   - "firmware-realtek"
 
+
 hardware_5401:
   - "firmware-iwlwifi"
+
 
 hardware_x230:
   - "firmware-iwlwifi"
   - "firmware-misc-nonfree"
+
 
 ...

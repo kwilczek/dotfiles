@@ -1,26 +1,46 @@
 ---
 
+
 - name: "purge unattended-upgrades"
-  apt:
+  ansible.builtin.apt:
     force_apt_get: "yes"
     update_cache: "yes"
     name: "unattended-upgrades"
     state: "absent"
     purge: "yes"
 
+
 - name: "copy APT settings"
-  copy:
+  ansible.builtin.copy:
     src: "10periodic"
     dest: "/etc/apt/apt.conf.d/10periodic"
     force: "yes"
 
+
+- name: "set APT Default-Release"
+  ansible.builtin.copy:
+    src: "99defaultrelease"
+    dest: "/etc/apt/apt.conf.d/"
+    force: "yes"
+
+
+- name: "install sources.list"
+  ansible.builtin.copy:
+    src: "sources.list"
+    dest: "/etc/apt/sources.list"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
+
 - name: "disable APT timers"
-  systemd:
+  ansible.builtin.systemd:
     state: "stopped"
     enabled: "no"
     name: "{{ item }}"
   loop:
     - "apt-daily.timer"
     - "apt-daily-upgrade.timer"
+
 
 ...

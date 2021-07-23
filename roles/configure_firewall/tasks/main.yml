@@ -1,11 +1,20 @@
 ---
 
-- name: "copy firewall script to NetworManager's dispatcher"
-  copy:
-    src: "firewall"
-    dest: "/etc/NetworkManager/dispatcher.d/pre-up.d/firewall"
+
+- name: "copy firewall"
+  ansible.builtin.copy:
+    src: "nftables.conf"
+    dest: "/etc/nftables.conf"
     owner: "root"
     group: "root"
-    mode: 0750
+    mode: "0750"
+
+
+- name: "enable nftables"
+  ansible.builtin.systemd:
+    name: "nftables.service"
+    state: "restarted"
+    enabled: "yes"
+
 
 ...

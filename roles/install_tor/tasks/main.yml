@@ -1,32 +1,37 @@
 ---
 
+
 - name: "remove previous Tor Browser installation"
-  file:
-      path: "{{ tor_dir }}"
-      state: "absent"
+  ansible.builtin.file:
+    path: "{{ tor_dir }}"
+    state: "absent"
+
 
 - name: "create Tor Browser installation directory"
-  file:
-      path: "{{ tor_dir }}"
-      state: "directory"
-      owner: "{{ ansible_env.USER }}"
-      group: "{{ ansible_env.USER }}"
-      mode: "0755"
+  ansible.builtin.file:
+    path: "{{ tor_dir }}"
+    state: "directory"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: "0755"
+
 
 - name: "install Tor Browser"
-  unarchive:
-      remote_src: "yes"
-      src: "{{ tor_url }}"
-      dest: "{{ tor_dir }}"
-      owner: "{{ ansible_env.USER }}"
-      group: "{{ ansible_env.USER }}"
-      extra_opts:
-        - "--strip-components=1"
+  ansible.builtin.unarchive:
+    remote_src: "yes"
+    src: "{{ tor_url }}"
+    dest: "{{ tor_dir }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    extra_opts:
+      - "--strip-components=1"
+
 
 - name: "install .desktop file"
   become: "no"
-  script: "{{ tor_dir }}/start-tor-browser.desktop --register-app"
+  ansible.builtin.script: "{{ tor_dir }}/start-tor-browser.desktop --register-app"
   args:
     chdir: "{{ tor_dir }}"
+
 
 ...

@@ -1,0 +1,9 @@
+deb http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye main contrib non-free
+deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye main contrib non-free
+
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+deb-src http://security.debian.org/debian-security bullseye-security main contrib non-free
+
+# Signal (for now) needs libappindicator1 from sid.
+deb http://ftp.icm.edu.pl/pub/Linux/debian/ sid main contrib non-free
+deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ sid main contrib non-free

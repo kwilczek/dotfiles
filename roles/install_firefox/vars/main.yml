@@ -1,6 +1,8 @@
 ---
 
+
 firefox_dir: "/opt/firefox"
 firefox_url: "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=pl"
+
 
 ...

@@ -1,16 +1,18 @@
 ---
 
+
 - name: "install packages"
-  apt:
+  ansible.builtin.apt:
     install_recommends: "no"
     force_apt_get: "yes"
     update_cache: "yes"
     name: "{{ item }}"
     state: "present"
   loop:
-      - "wireguard-dkms"
-      - "wireguard-tools"
+    - "wireguard-dkms"
+    - "wireguard-tools"
   notify:
-      - "apt_get_clean"
+    - "apt_get_clean"
+
 
 ...

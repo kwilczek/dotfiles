@@ -1,0 +1,63 @@
+---
+
+
+ansible_connection: "local"
+ansible_host: "localhost"
+
+
+# IPv6. Most ISPs do not assing IPv6 addresses.
+disable_ipv6: true
+
+
+# System-wide DNS configuration (systemd-resolved).
+dns_over_tls: "yes"
+dns_primary: "9.9.9.9#dns.quad9.net"
+dns_secondary: "149.112.112.112#dns.quad9.net"
+llmnr: "no"
+
+
+packages:
+  - "{{ gnome }}"
+  - "{{ editors }}"
+  - "{{ vcs }}"
+  - "{{ security }}"
+  - "{{ system_tools }}"
+  - "{{ network_tools }}"
+  - "{{ vpn }}"
+  - "{{ programming_general }}"
+  - "{{ python }}"
+  - "{{ multimedia }}"
+  - "{{ texlive }}"
+
+
+firefox_dir: "/opt/firefox"
+firefox_url: "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=pl"
+firefox_profiles_dir: "{{ ansible_env.HOME }}/.firefox_profiles"
+firefox_profiles:
+  - name: "bank"
+    status: "present"
+    number: "0"
+  - name: "play"
+    status: "present"
+    number: "1"
+  - name: "work"
+    status: "present"
+    number: "2"
+  - name: "mail"
+    status: "present"
+    number: "3"
+  - name: "gmail"
+    status: "present"
+    number: "4"
+  - name: "facebook"
+    status: "present"
+    number: "5"
+  - name: "tidal"
+    status: "absent"
+    number: "6"
+  - name: "netflix"
+    status: "present"
+    number: "7"
+
+
+...

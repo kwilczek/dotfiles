@@ -1,51 +1,74 @@
 ---
 
+
 - name: "create .vim directory structure"
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
     state: "directory"
   loop:
     - "colors"
     - "plugin"
 
+
 - name: "download the distinguished colorscheme"
-  get_url:
+  ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim"
     dest: "{{ ansible_env.HOME }}/.vim/colors/distinguished.vim"
     mode: "0644"
 
+
 - name: "clone gruvbox colorscheme"
-  git:
+  ansible.builtin.git:
     repo: "https://github.com/morhetz/gruvbox.git"
     dest: "{{ ansible_env.HOME }}/.vim/pack/default/start/gruvbox"
 
+
+- name: "clone nginx syntax"
+  ansible.builtin.git:
+    repo: "https://github.com/chr4/nginx.vim.git"
+    dest: "{{ ansible_env.HOME }}/.vim/pack/default/start/nginx"
+
+
 - name: "download the vim-lastplace plugin"
-  get_url:
+  ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/farmergreg/vim-lastplace/master/plugin/vim-lastplace.vim"
     dest: "{{ ansible_env.HOME }}/.vim/plugin/lastplace.vim"
     mode: "0644"
 
+
+- name: "download the indentLine plugin"
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/Yggdroot/indentLine/master/after/plugin/indentLine.vim"
+    dest: "{{ ansible_env.HOME }}/.vim/plugin/indentline.vim"
+    mode: "0644"
+
+
 - name: "copy .vimrc"
-  copy:
+  ansible.builtin.copy:
     src: "vimrc"
     dest: "{{ ansible_env.HOME }}/.vimrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
 
-- name: "copy templates to the templates directory"
+
+- name: "copy Vim templates"
   become: "yes"
-  copy:
+  ansible.builtin.copy:
     src: "templates"
     dest: "{{ ansible_env.HOME }}/.vim/"
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
 
+
 - name: "copy Vim configuration for root"
   become: "yes"
-  copy:
+  ansible.builtin.copy:
     remote_src: "yes"
     src: "{{ ansible_env.HOME }}/{{ item }}"
     dest: "/root/"
   loop:
     - ".vim"
     - ".vimrc"
+
 
 ...

@@ -1,18 +1,30 @@
 ---
 
+
 - name: "start and enable systemd-resolved"
-  systemd:
+  ansible.builtin.systemd:
     name: "systemd-resolved.service"
     state: "started"
     enabled: "yes"
 
+
 - name: "symlink resolv.conf to systemd stub file"
-  file:
+  ansible.builtin.file:
     src: "/run/systemd/resolve/stub-resolv.conf"
     dest: "/etc/resolv.conf"
     owner: "root"
     group: "root"
     state: "link"
     force: "yes"
+
+
+- name: "copy systemd-resolved configuration"
+  ansible.builtin.template:
+    src: "resolved.conf"
+    dest: "/etc/systemd/resolved.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
 
 ...

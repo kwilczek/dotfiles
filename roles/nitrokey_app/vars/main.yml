@@ -1,7 +1,0 @@
----
-
-nitrokey_url: "https://github.com/Nitrokey/nitrokey-app/releases/download/v1.4.1/Nitrokey_App-x86_64-v1.4.1.AppImage"
-nitrokey_dir: "/usr/local/bin"
-nitrokey_app: "nitrokey_app"
-
-...

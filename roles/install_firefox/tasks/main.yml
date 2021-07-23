@@ -1,34 +1,39 @@
 ---
 
+
 - name: "remove previous Firefox installation"
-  file:
-      path: "{{ firefox_dir }}"
-      state: "absent"
+  ansible.builtin.file:
+    path: "{{ firefox_dir }}"
+    state: "absent"
+
 
 - name: "create Firefox install directory"
-  file:
-      path: "{{ firefox_dir }}"
-      state: "directory"
-      owner: "{{ ansible_env.USER }}"
-      group: "{{ ansible_env.USER }}"
-      mode: "0750"
+  ansible.builtin.file:
+    path: "{{ firefox_dir }}"
+    state: "directory"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: "0750"
+
 
 - name: "install Firefox"
-  unarchive:
-      remote_src: "yes"
-      src: "{{ firefox_url }}"
-      dest: "{{ firefox_dir }}"
-      owner: "{{ ansible_env.USER }}"
-      group: "{{ ansible_env.USER }}"
-      extra_opts:
-          - "--strip-components=1"
+  ansible.builtin.unarchive:
+    remote_src: "yes"
+    src: "{{ firefox_url }}"
+    dest: "{{ firefox_dir }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    extra_opts:
+      - "--strip-components=1"
 
-- name: "install menu entry"
-  template:
-      src: "kmwil.firefox.current.desktop"
-      dest: "/usr/local/share/applications/"
-      owner: "root"
-      group: "root"
-      mode: "0644"
+
+- name: "change ownership of all files"
+  ansible.builtin.file:
+    path: "{{ firefox_dir }}"
+    state: "directory"
+    recurse: "yes"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+
 
 ...

@@ -1,7 +1,8 @@
 ---
 
+
 - name: "remove unwanted packages"
-  apt:
+  ansible.builtin.apt:
     force_apt_get: "yes"
     update_cache: "yes"
     name: "{{ unwanted_packages }}"
@@ -9,13 +10,17 @@
     purge: "yes"
     autoremove: "yes"
 
+
 - name: "install packages"
-  apt:
+  ansible.builtin.apt:
     install_recommends: "no"
     force_apt_get: "yes"
     update_cache: "yes"
     name: "{{ item }}"
     state: "present"
   loop: "{{ packages }}"
+  notify:
+    - "apt_get_clean"
+
 
 ...

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=Firefox {{ item.name | title }}
+Name[pl]=Firefox {{ item.name | title }}
+Comment=Browse the World Wide Web
+Comment[pl]=Przeglądanie stron WWW
+GenericName=Web Browser
+GenericName[pl]=Przeglądarka WWW
+X-GNOME-FullName=Firefox {{ item.name | title }} Web Browser
+X-GNOME-FullName[pl]=Przeglądarka WWW Firefox {{ item.name | title }}
+Exec={{ firefox_dir }}/firefox --no-remote --profile {{ firefox_profiles_dir }}/{{ item.name }} %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon={{ firefox_dir }}/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-{{ item.name | title }}
+StartupNotify=true

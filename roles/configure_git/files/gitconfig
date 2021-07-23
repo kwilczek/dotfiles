@@ -1,13 +1,13 @@
-[alias]
-	c = commit --verbose
-	co = checkout
-	cob = checkout -b
-	p = push
-	a = add -p
-	d = diff
-	s = status
-	sb = status -sb
-
 [user]
-	name = Kamil Wilczek
-	email = kmwil@mimuw.edu.pl
+    name = Kamil Wilczek
+    email = kamil.wilczek@protonmail.com
+
+[alias]
+    c = commit --verbose
+    co = checkout
+    cob = checkout -b
+    p = push
+    a = add -p
+    d = diff
+    s = status
+    sb = status -sb

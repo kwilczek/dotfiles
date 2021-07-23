@@ -1,9 +1,0 @@
----
-
-- name: "copy the gpg.conf"
-  copy:
-    src: "gpg.conf"
-    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_user }}"
-    mode: "0644"

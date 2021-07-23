@@ -1,0 +1,32 @@
+---
+
+
+- hosts: "localhost"
+  roles:
+    - { name: configure_apt, become: yes, tags: [configure_apt] }
+    - { name: configure_vim, tags: [configure_vim] }
+    - { name: disable_ipv6, become: yes, tags: [disable_ipv6] }
+    - { name: systemd_resolved, become: yes, tags: [systemd_resolved] }
+    - { name: configure_firewall, become: yes, tags: [firewall] }
+    - { name: manage_packages, become: yes, tags: [manage_packages] }
+    - { name: install_firefox, become: yes, tags: [install_firefox] }
+    - { name: configure_firefox, tags: [configure_firefox] }
+    - { name: configure_git, tags: [configure_git] }
+    - { name: install_tor, become: yes, tags: [tor] }
+    - { name: install_signal, become: yes, tags: [signal] }
+    - { name: install_wireguard, become: yes, tags: [wireguard] }
+
+    - { name: configure_bashrc, tags: [configure_bashrc] }
+
+
+  # Clear downloaded .deb packages.
+  # Currently Ansible does not support this in a module.
+  handlers:
+    - name: "apt_get_clean"
+      become: "yes"
+      command: "apt-get clean"
+      args:
+        warn: False
+
+
+...
