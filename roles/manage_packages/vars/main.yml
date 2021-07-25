@@ -109,6 +109,11 @@ python:
   - "virtualenvwrapper"
 
 
+virtualbox:
+  - "virtualbox"
+  - "vagrant"
+
+
 audio_processing:
   # Musicbrainz abcde tool will not work without this packages.
   - "abcde"

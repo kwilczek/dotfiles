@@ -17,17 +17,18 @@ llmnr: "no"
 
 
 packages:
-  - "{{ gnome }}"
   - "{{ editors }}"
-  - "{{ vcs }}"
-  - "{{ security }}"
-  - "{{ system_tools }}"
+  - "{{ gnome }}"
+  - "{{ multimedia }}"
   - "{{ network_tools }}"
-  - "{{ vpn }}"
   - "{{ programming_general }}"
   - "{{ python }}"
-  - "{{ multimedia }}"
+  - "{{ security }}"
+  - "{{ system_tools }}"
   - "{{ texlive }}"
+  - "{{ virtualbox }}"
+  - "{{ vcs }}"
+  - "{{ vpn }}"
 
 
 firefox_dir: "/opt/firefox"
