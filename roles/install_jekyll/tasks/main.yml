@@ -1,0 +1,40 @@
+---
+
+
+- name: "install required packages"
+  become: "yes"
+  ansible.builtin.apt:
+    install_recommends: "no"
+    force_apt_get: "yes"
+    update_cache: "yes"
+    name: "{{ item }}"
+    state: "present"
+  loop: "{{ jekyll_packages }}"
+  notify:
+    - "apt_get_clean"
+
+
+- name: "configure ruby gems dir"
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export GEM_HOME="{{ ansible_env.HOME }}/.gems"
+      export PATH="${HOME}/.gems/bin:${PATH}"
+
+
+- name: "install jekyll"
+  community.general.gem:
+    name: "jekyll"
+    state: "present"
+    bindir: "{{ ansible_env.HOME }}/.gems/bin"
+
+
+- name: "install bundler"
+  community.general.gem:
+    name: "bundler"
+    state: "present"
+    bindir: "{{ ansible_env.HOME }}/.gems/bin"
+
+
+...

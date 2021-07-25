@@ -15,6 +15,7 @@
     - { name: install_tor, become: yes, tags: [tor] }
     - { name: install_signal, become: yes, tags: [signal] }
     - { name: install_wireguard, become: yes, tags: [wireguard] }
+    - { name: install_jekyll, tags: [jekyll] }
 
     - { name: configure_bashrc, tags: [configure_bashrc] }
 
