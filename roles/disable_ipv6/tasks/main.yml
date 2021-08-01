@@ -6,6 +6,7 @@
     name: "net.ipv6.conf.all.disable_ipv6"
     value: "1"
     sysctl_set: "yes"
+    sysctl_file: "/etc/sysctl.d/{{ sysctl_local }}"
     state: "present"
     reload: "yes"
   when: disable_ipv6
@@ -16,6 +17,7 @@
     name: "net.ipv6.conf.all.disable_ipv6"
     value: "0"
     sysctl_set: "yes"
+    sysctl_file: "/etc/sysctl.d/{{ sysctl_local }}"
     state: "present"
     reload: "yes"
   when: not disable_ipv6

@@ -4,6 +4,8 @@
 ansible_connection: "local"
 ansible_host: "localhost"
 
+# Local sysctl file.
+sysctl_local: "local.conf"
 
 # IPv6. Most ISPs do not assing IPv6 addresses.
 disable_ipv6: true
