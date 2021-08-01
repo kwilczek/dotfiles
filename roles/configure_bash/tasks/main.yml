@@ -1,0 +1,77 @@
+---
+
+
+- name: "create bash source directory"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/{{ bashrc_d }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: "0750"
+    state: "directory"
+
+
+- name: "copy dummy starter file"
+  ansible.builtin.copy:
+    src: "00.dummy.bashrc"
+    dest: "{{ ansible_env.HOME }}/{{ bashrc_d }}/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: "0640"
+
+
+- name: "include bash source directory in .bashrc"
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      for bashrc_file in "$(ls {{ ansible_env.HOME }}/{{ bashrc_d }}/*.{{ bashrc_suffix }})"; do
+          source "${bashrc_file}"
+      done
+    insertafter: "EOF"
+
+
+
+# - name: "configure .bashrc"
+#   blockinfile:
+#     path: "{{ ansible_env.HOME }}/.bashrc"
+#     block: |
+#       export EDITOR=vim
+# 
+#       # Git branch in the prompt.
+#       parse_git_branch() {
+#           local branch=$(git branch 2> /dev/null | grep '^*' | awk '{ print $NF }')
+#           if [[ -z "${branch}" ]]; then
+#               echo -e "\U27BD"
+#           else
+#               echo -e "\U27BD ${branch}"
+#           fi
+#       }
+#       
+#       # Prompt set.
+#       PS1='\[\033[1;38;5;220m\][$?] \[\033[1;38;5;106m\]\u@\h\[\033[00m\]:\[\033[1;38;5;106m\]\W\[\033[00m\] \[\033[1;38;5;244m\]$(parse_git_branch)\[\033[00m\] $ '
+#     
+#     insertafter: "EOF"
+# 
+# - name: "configure .bashrc for root"
+#   become: "yes"
+#   blockinfile:
+#     path: "/root/.bashrc"
+#     block: |
+#       export EDITOR=vim
+# 
+#       # Git branch in the prompt.
+#       parse_git_branch() {
+#           local branch=$(git branch 2> /dev/null | grep '^*' | awk '{ print $NF }')
+#           if [[ -z "${branch}" ]]; then
+#               echo -e "\U27BD"
+#           else
+#               echo -e "\U27BD ${branch}"
+#           fi
+#       }
+#       
+#       # Prompt set.
+#       PS1='\[\033[1;38;5;220m\][$?] \[\033[1;38;5;088m\]\u@\h\[\033[00m\]:\[\033[1;38;5;088m\]\W\[\033[00m\] \[\033[1;38;5;244m\]$(parse_git_branch)\[\033[00m\] # '
+#     
+#     insertafter: "EOF"
+
+
+...

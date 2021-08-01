@@ -3,6 +3,7 @@
 
 - hosts: "localhost"
   roles:
+    - { name: configure_bash, tags: [configure_bash] }
     - { name: configure_apt, become: yes, tags: [configure_apt] }
     - { name: configure_vim, tags: [configure_vim] }
     - { name: disable_ipv6, become: yes, tags: [disable_ipv6] }
@@ -16,8 +17,6 @@
     - { name: install_signal, become: yes, tags: [signal] }
     - { name: install_wireguard, become: yes, tags: [wireguard] }
     - { name: install_jekyll, tags: [jekyll] }
-
-    - { name: configure_bashrc, tags: [configure_bashrc] }
 
 
   # Clear downloaded .deb packages.
